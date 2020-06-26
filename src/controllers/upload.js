@@ -5,7 +5,7 @@ const {Image} = require("../../sequelize");
 
 const uploadFiles = async (req, res) => {
   try {
-    console.log(req.file);
+    debug(req.file);
 
     if (req.file == undefined) {
       return res.send(`You must select a file.`);
@@ -21,7 +21,6 @@ const uploadFiles = async (req, res) => {
         __basedir + "/resources/static/assets/tmp/" + image.name,
         image.data
       );
-
       return res.send(`File has been uploaded.`);
     });
   } catch (error) {
