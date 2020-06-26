@@ -9,7 +9,7 @@ let routes = (app) => {
 
   router.post("/upload", upload.single("file"), uploadController.uploadFiles);
 
-  return app.use("/images", router);
+  return app.use("/", router);
 };
 
 module.exports = routes;
