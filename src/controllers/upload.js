@@ -1,7 +1,10 @@
 const fs = require("fs");
 const debug = require('debug')('app:upload')
+const path = require("path");
 
 const {Image} = require("../../sequelize");
+const { dirname } = require("path");
+
 
 const uploadFiles = async (req, res) => {
   try {
@@ -18,7 +21,7 @@ const uploadFiles = async (req, res) => {
       ),
     }).then((image) => {
       fs.writeFileSync(
-        __basedir + "/resources/static/assets/tmp/" + image.name,
+        __dirname + "/resources/static/assets/tmp/" + image.name,
         image.data
       );
       return res.send(`File has been uploaded.`);

@@ -1,9 +1,12 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const route = require('./src/routes/imageRoutes')
+const debug = require('debug')('app:root')
 
 const app = express()
 app.use(bodyParser.json())
+
+global.__basedir = __dirname;
 
 // API ENDPOINTS
 const { User, Blog, Tag } = require('./sequelize')
