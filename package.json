@@ -1,0 +1,27 @@
+{
+  "name": "node-sequelize",
+  "version": "1.0.0",
+  "description": "Sequelizing with node and express",
+  "main": "app.js",
+  "scripts": {
+    "start": "set DEBUG=app,app:* & nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lollykrown/node-sequelize.git"
+  },
+  "author": "Kayode Agboola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lollykrown/node-sequelize/issues"
+  },
+  "homepage": "https://github.com/lollykrown/node-sequelize#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "debug": "^4.1.1",
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.4",
+    "sequelize": "^6.2.0"
+  }
+}
