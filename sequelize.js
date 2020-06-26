@@ -15,21 +15,7 @@ const sequelize = new Sequelize('mydb', 'root', '',{
     acquire: 30000,
     idle: 10000
   }
-  // dialectOptions: {
-  //   socketPath: '.var/run/mysqld/mysqld.sock'
-  // },
-  // define: {
-  //   paranoid: true
-  // }
 })
-
-// try {
-//   await sequelize.authenticate();
-//   debug('Connection has been established successfully.');
-// } catch (error) {
-//   console.error('Unable to connect to the database:', error);
-// }
-
 
 const User = UserModel(sequelize, Sequelize)
 // BlogTag will be our way of tracking relationship between Blog and Tag models
@@ -46,7 +32,7 @@ Blog.belongsTo(User);
 
 sequelize.sync({ force: true })
   .then(() => {
-    console.log(`Database & tables created!`)
+    debug(`Database & tables created!`)
   })
 
 module.exports = {
