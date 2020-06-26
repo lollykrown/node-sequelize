@@ -1,10 +1,15 @@
+const { DataTypes } = require("sequelize/types")
+
 module.exports = (sequelize, type) => {
   return sequelize.define('user', {
-      id: {
-        type: type.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
+      type: {
+        type: DataTypes.STRING,
       },
-      name: type.STRING
+      name: {
+        type: DataTypes.STRING
+      },
+      data: {
+        type: DataTypes.BLOB('long')
+      }
   })
 }
