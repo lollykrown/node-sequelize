@@ -1,11 +1,14 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const route = require('./src/routes/imageRoutes')
 
 const app = express()
 app.use(bodyParser.json())
 
 // API ENDPOINTS
 const { User, Blog, Tag } = require('./sequelize')
+
+route(app)
 
 // create a user
 app.post('/api/users', (req, res) => {

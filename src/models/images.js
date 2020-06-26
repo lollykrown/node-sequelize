@@ -1,15 +1,13 @@
-const { DataTypes } = require("sequelize/types")
-
 module.exports = (sequelize, type) => {
-  return sequelize.define('user', {
+  return sequelize.define('image', {
       type: {
-        type: DataTypes.STRING,
+        type: type.STRING,
       },
       name: {
-        type: DataTypes.STRING
+        type: type.STRING
       },
       data: {
-        type: DataTypes.BLOB('long')
+        type: type.BLOB('long')
       }
   })
 }

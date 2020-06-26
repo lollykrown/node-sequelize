@@ -1,6 +1,7 @@
 const fs = require("fs");
+const debug = require('debug')('app:upload')
 
-const {Image} = require("../../../sequelize");
+const {Image} = require("../../sequelize");
 
 const uploadFiles = async (req, res) => {
   try {
@@ -9,7 +10,6 @@ const uploadFiles = async (req, res) => {
     if (req.file == undefined) {
       return res.send(`You must select a file.`);
     }
-
     Image.create({
       type: req.file.mimetype,
       name: req.file.originalname,
@@ -25,7 +25,7 @@ const uploadFiles = async (req, res) => {
       return res.send(`File has been uploaded.`);
     });
   } catch (error) {
-    console.log(error);
+    debug(error);
     return res.send(`Error when trying upload images: ${error}`);
   }
 };

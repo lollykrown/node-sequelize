@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize')
-const UserModel = require('./src/routes/models/user')
-const BlogModel = require('./src/routes/models/blog')
-const TagModel = require('./src/routes/models/tag')
-const ImagesModel = require('./src/routes/models/images')
+const UserModel = require('./src/models/user')
+const BlogModel = require('./src/models/blog')
+const TagModel = require('./src/models/tag')
+const ImagesModel = require('./src/models/images')
 const debug = require('debug')('app:sequelize')
 
 const sequelize = new Sequelize('mydb', 'root', '',{
