@@ -8,7 +8,7 @@ const imageFilter = (req, file, cb) => {
   }
 };
 
-const storage = multer.diskStorage({
+var storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, __basedir + "/resources/static/assets/uploads/");
   },
@@ -17,5 +17,5 @@ const storage = multer.diskStorage({
   },
 });
 
-const uploadFile = multer({ storage: storage, fileFilter: imageFilter });
+var uploadFile = multer({ storage: storage, fileFilter: imageFilter });
 module.exports = uploadFile;
