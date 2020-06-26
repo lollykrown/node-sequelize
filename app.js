@@ -33,19 +33,19 @@ app.post('/api/blogs', (req, res) => {
 
 // find blogs belonging to one user or all blogs
 app.get('/api/blogs/:userId?', (req, res) => {
-    let query;
-    if(req.params.userId) {
-        query = Blog.findAll({ include: [
-            { model: User, where: { id: req.params.userId } },
-            { model: Tag }
-        ]})
-    } else {
-        query = Blog.findAll({ include: [Tag, User]})
-    }
-    return query.then(blogs => res.json(blogs))
+  let query;
+  if(req.params.userId) {
+      query = Blog.findAll({ include: [
+          { model: User, where: { id: req.params.userId } },
+          { model: Tag }
+      ]});
+  } else {
+      query = Blog.findAll({ include: [Tag, User]})
+  }
+  return query.then(blogs => res.json(blogs))
 })
 
-const port = 3000
+const port = 4000
 app.listen(port, () => {
     console.log(`Running on http://localhost:${port}`)
 })
