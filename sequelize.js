@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize')
-const UserModel = require('./models/user')
-const BlogModel = require('./models/blog')
-const TagModel = require('./models/tag')
+const UserModel = require('./src/routes/models/user')
+const BlogModel = require('./src/routes/models/blog')
+const TagModel = require('./src/routes/models/tag')
+const ImagesModel = require('./src/routes/models/images')
 const debug = require('debug')('app:sequelize')
 
 const sequelize = new Sequelize('mydb', 'root', '',{
@@ -36,6 +37,8 @@ const User = UserModel(sequelize, Sequelize)
 const BlogTag = sequelize.define('blog_tag', {})
 const Blog = BlogModel(sequelize, Sequelize)
 const Tag = TagModel(sequelize, Sequelize)
+const Image = ImagesModel(sequelize, Sequelize)
+
 
 Blog.belongsToMany(Tag, { through: BlogTag, unique: false })
 Tag.belongsToMany(Blog, { through: BlogTag, unique: false })
@@ -49,5 +52,6 @@ sequelize.sync({ force: true })
 module.exports = {
   User,
   Blog,
-  Tag
+  Tag,
+  Image
 }
