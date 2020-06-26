@@ -25,7 +25,6 @@ const Blog = BlogModel(sequelize, Sequelize)
 const Tag = TagModel(sequelize, Sequelize)
 const Image = ImagesModel(sequelize, Sequelize)
 
-
 Blog.belongsToMany(Tag, { through: BlogTag, unique: false })
 Tag.belongsToMany(Blog, { through: BlogTag, unique: false })
 Blog.belongsTo(User);
