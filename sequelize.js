@@ -7,8 +7,17 @@ const debug = require('debug')('app:sequelize')
 
 const {DataTypes} = require('sequelize')
 
+// //Using raw query to create database for the first time
+// //create the sequelize instance, omitting the database-name arg
+// const sequelize = new Sequelize("", "root", "", {
+//   dialect: "mysql"
+// });
 
-const sequelize = new Sequelize('mydb', 'root', '',{
+// return sequelize.query("CREATE DATABASE `nodeSequelizeDb`;").then(data => {
+//   debug('database created')
+// });
+
+const sequelize = new Sequelize('nodeSequelizeDb', 'root', '',{
   host: 'localhost',
   dialect: 'mysql',
   port: '3306',
