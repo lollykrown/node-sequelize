@@ -5,6 +5,9 @@ const TagModel = require('./src/models/tag')
 const ImagesModel = require('./src/models/images')
 const debug = require('debug')('app:sequelize')
 
+const {DataTypes} = require('sequelize')
+
+
 const sequelize = new Sequelize('mydb', 'root', '',{
   host: 'localhost',
   dialect: 'mysql',
@@ -17,7 +20,7 @@ const sequelize = new Sequelize('mydb', 'root', '',{
   }
 })
 
-const User = UserModel(sequelize, Sequelize)
+const User = UserModel(sequelize, DataTypes)
 // BlogTag will be our way of tracking relationship between Blog and Tag models
 // each Blog can have multiple tags and each Tag can have multiple blogs
 const BlogTag = sequelize.define('blog_tag', {})

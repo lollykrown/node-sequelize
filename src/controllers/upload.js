@@ -21,7 +21,7 @@ const uploadFiles = async (req, res) => {
       ),
     }).then((image) => {
       fs.writeFileSync(
-        __dirname + "/resources/static/assets/tmp/" + image.name,
+        __basedir + "/resources/static/assets/tmp/" + image.name,
         image.data
       );
       return res.send(`File has been uploaded.`);

@@ -17,6 +17,7 @@ route(app)
 app.post('/api/users', (req, res) => {
   User.create(req.body)
       .then(user => res.json(user))
+      .catch(err => debug(err))
 })
 // get all users
 app.get('/api/users', (req, res) => {
